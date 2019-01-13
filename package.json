@@ -1,0 +1,63 @@
+{
+    "name": "vamtiger-oblique-banner",
+    "version": "1.0.1-0",
+    "description": "VAMTIGER oblique image banner.",
+    "main": "build/vamtiger-oblique-banner",
+    "scripts": {
+        "test": "npm run clean && npm run build && npm run bundle-node-test && npm run bundle-browser-test && npm run mocha && npm run bundle-source",
+        "mocha": "mocha build/test/node --recursive",
+        "build": "tsc",
+        "commit": "npm run bundle && vamtiger-node-typescript-commit --push --publish --buildScript bundle",
+        "clean": "rm -rf build/*",
+        "clean-install": "rm -rf package-lock.json node_modules && npm i",
+        "clean-bundle": "vamtiger-remove -d build -p \"(vamtiger-oblique-banner)\\.(js(\\.map)?|d\\.ts)\"",
+        "bundle-source": "vamtiger-bundle-typescript --relativePath --entryFilePath source/vamtiger-oblique-banner.ts --bundleFilePath build/vamtiger-oblique-banner.js --format iife --sourcemap true --copySourceMap --minify",
+        "bundle-node-test": "vamtiger-bundle-typescript --relativePath --entryFilePath source/test/node.ts --bundleFilePath build/test/node.js --format cjs --sourcemap true --copySourceMap --minify",
+        "bundle-browser-test": "vamtiger-bundle-typescript --relativePath --entryFilePath source/test/browser.ts --bundleFilePath build/test/browser.js --format iife --sourcemap true --copySourceMap --minify",
+        "bundle": "npm test && npm run bundle-source && npm run clean-bundle",
+        "bundle-html": "vamtiger-bundle-html --relativePath --entryFilePath source/html/index.html --bundleFilePath --bundleFilePath source/html/index.ts",
+        "bundle-css": "vamtiger-bundle-css-next --relativePath --entryFilePath source/css/index.css --bundleFilePath source/css/index.ts --sourcemap inline",
+        "watch-source": "npm run bundle-source -- --watch",
+        "watch-node-test": "npm run bundle-node-test -- --watch",
+        "watch-browser-test": "npm run bundle-browser-test -- --watch",
+        "watch-html": "npm run bundle-html -- --watch",
+        "watch-css": "npm run bundle-css -- --watch",
+        "watch": "npm run watch-source | npm run watch-node-test | npm run watch-browser-test | npm run watch-html | npm run watch-css",
+        "watch-all": "vamtiger-watch --folder source --extension ts --script bundle-source --extension css --script bundle-css",
+        "serve": "npm run test && cd build && python -m SimpleHTTPServer"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://vamtiger-project@github.com/vamtiger-project/vamtiger-oblique-banner.git"
+    },
+    "keywords": [
+        "vamtiger",
+        "image",
+        "banner"
+    ],
+    "author": "Vamtiger Immortalles",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/vamtiger-project/vamtiger-oblique-banner/issues"
+    },
+    "homepage": "https://github.com/vamtiger-project/vamtiger-oblique-banner#readme",
+    "types": "build/vamtiger-oblique-banner.d.ts",
+    "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.5",
+        "@types/node": "^10.12.18",
+        "chai": "^4.2.0",
+        "mocha": "^5.2.0",
+        "typescript": "^3.2.2",
+        "vamtiger-bash": "0.0.25",
+        "vamtiger-bundle-css-next": "^0.2.1",
+        "vamtiger-bundle-html": "^0.1.1",
+        "vamtiger-bundle-typescript": "0.0.27",
+        "vamtiger-node-typescript-commit": "^0.9.1",
+        "vamtiger-remove": "0.0.5",
+        "vamtiger-watch": "^1.1.1"
+    },
+    "dependencies": {
+        "vamtiger-browser-method": "source"
+    }
+}
