@@ -23,6 +23,7 @@
         "watch-html": "npm run bundle-html -- --watch",
         "watch-css": "npm run bundle-css -- --watch",
         "watch": "npm run watch-source | npm run watch-node-test | npm run watch-browser-test | npm run watch-html | npm run watch-css",
+        "watch-all": "vamtiger-watch --folder source --extension ts --script bundle-source --extension css --script bundle-css",
         "serve": "npm run test && cd build && python -m SimpleHTTPServer"
     },
     "repository": {
@@ -53,7 +54,8 @@
         "vamtiger-bundle-html": "^0.1.1",
         "vamtiger-bundle-typescript": "0.0.27",
         "vamtiger-node-typescript-commit": "^0.9.1",
-        "vamtiger-remove": "0.0.5"
+        "vamtiger-remove": "0.0.5",
+        "vamtiger-watch": "^1.1.1"
     },
     "dependencies": {
         "vamtiger-browser-method": "source"
