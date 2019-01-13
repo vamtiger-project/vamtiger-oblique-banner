@@ -1,0 +1,12 @@
+:host
+{
+    display: grid;
+    position: relative;
+}
+
+:host,
+.responsive
+{
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,1 @@
+export default '<slot name="oblique-banner"></slot><figure slot="oblique-banner"><picture><img></picture></figure>';
