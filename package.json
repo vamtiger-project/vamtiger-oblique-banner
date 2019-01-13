@@ -1,6 +1,6 @@
 {
     "name": "vamtiger-oblique-banner",
-    "version": "1.0.1-0",
+    "version": "1.0.1",
     "description": "VAMTIGER oblique image banner.",
     "main": "build/vamtiger-oblique-banner",
     "scripts": {
